@@ -1,0 +1,19 @@
+Package: normalizador.ba
+Title: Normalizador de Direcciones
+Version: 0.0.0.9000
+Authors@R: 
+    person("Martin", "Gallardo", , "martin.gallardo23@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Utilizar la plataforma USIG para normalizar y geocodificar direcciones.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0
+Imports: 
+    httr,
+    jsonlite,
+    dplyr
+Depends: 
+    R (>= 2.10)
+LazyData: true
