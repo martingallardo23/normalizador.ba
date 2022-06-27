@@ -27,6 +27,7 @@ Las funciones actualmente disponibles son
 - [`datos_utiles(calle, altura, x, y)`](#bulb-datos_utiles)
 - [`convertir_coord(x, y, output)`](#globe_with_meridians-convertir_coord)
 
+## Ejemplos
 
 ### :book: `normalizar_direccion`
 
