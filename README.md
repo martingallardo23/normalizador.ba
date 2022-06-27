@@ -85,7 +85,7 @@ coordenada detectado automáticamente.
 
 ``` r
 data <- reverse_geocode(x = -58.37583628694437,
-            y = -34.59857730467378)
+                        y = -34.59857730467378)
 
 dplyr::glimpse(data)
 ```
