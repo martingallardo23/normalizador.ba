@@ -8,6 +8,8 @@ Este paquete provee una interfaz simplificada para interactuar a través de R co
 devtools::install_github("martingallardo23/normalizador.ba")
 ```
 
+## Funciones
+
 Las funciones actualmente disponibles son
 
 - [`normalizar_direccion(calle, altura, desambiguar)`](#book-normalizar_direccion)
@@ -16,7 +18,6 @@ Las funciones actualmente disponibles son
 - [`datos_utiles(calle, altura, x, y)`](#bulb-datos_utiles)
 - [`convertir_coord(x, y, output)`](#globe_with_meridians-convertir_coordenadas)
 
-## Funciones
 
 ### :book: `normalizar_direccion`
 
