@@ -10,11 +10,11 @@ devtools::install_github("martingallardo23/normalizador.ba")
 
 Las funciones actualmente disponibles son
 
-- `normalizar_direccion(calle, altura, desambiguar)`
-- `geocode(calle, altura, desambiguar, output)` 
-- `reverse_geocode(x, y)`
-- `datos_utiles(calle, altura, x, y)`
-- `convertir_coord(x, y, output)` 
+- [`normalizar_direccion(calle, altura, desambiguar)`](#book-normalizardireccion)
+- [`geocode(calle, altura, desambiguar, output)`](#earthamericas-geocode)
+- [`reverse_geocode(x, y)`](#roundpushpin-reversegeocode)
+- [`datos_utiles(calle, altura, x, y)`](#bulb-datosutiles)
+- [`convertir_coord(x, y, output)`](#globewithmeridians-convertircoordenadas)
 
 ## Funciones
 
@@ -50,9 +50,9 @@ dplyr::glimpse(data)
 # $ x <chr> "108019.466613"
 # $ y <chr> "103392.789588"
 
-data <-geocode(calle  = "Córdoba av",
-               altura = 637,
-               output = "lonlat")
+data <- geocode(calle  = "Córdoba av",
+                altura = 637,
+                output = "lonlat")
 
 dplyr::glimpse(data)
         
@@ -89,7 +89,7 @@ Devuelve datos útiles sobre una dirección o coordenada. Ejemplos: comuna,
 barrio, comisaría, distrito escolar, código de planeaminento urbano, etc. Se puede buscar por intersección, calle y altura, o coordenadas.
  
 ```r
-data <- datos_utiles(calle = "Córdoba av",
+data <- datos_utiles(calle  = "Córdoba av",
                      altura = 637)
 
 dplyr::glimpse(data)
