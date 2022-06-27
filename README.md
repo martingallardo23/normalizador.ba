@@ -11,7 +11,7 @@ devtools::install_github("martingallardo23/normalizador.ba")
 Las funciones actualmente disponibles son
 
 - [`normalizar_direccion(calle, altura, desambiguar)`](#book-normalizar_direccion)
-- [`geocode(calle, altura, desambiguar, output)`](#earth-americas-geocode)
+- [`geocode(calle, altura, desambiguar, output)`](#earth_americas-geocode)
 - [`reverse_geocode(x, y)`](#round_pushpin-reverse_geocode)
 - [`datos_utiles(calle, altura, x, y)`](#bulb-datos_utiles)
 - [`convertir_coord(x, y, output)`](#globe_with_meridians-convertir_coordenadas)
