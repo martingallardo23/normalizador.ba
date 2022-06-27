@@ -16,7 +16,7 @@ Las funciones actualmente disponibles son
 - [`geocode(calle, altura, desambiguar, output)`](#earth_americas-geocode)
 - [`reverse_geocode(x, y)`](#round_pushpin-reverse_geocode)
 - [`datos_utiles(calle, altura, x, y)`](#bulb-datos_utiles)
-- [`convertir_coord(x, y, output)`](#globe_with_meridians-convertir_coordenadas)
+- [`convertir_coord(x, y, output)`](#globe_with_meridians-convertir_coord)
 
 
 ### :book: `normalizar_direccion`
@@ -131,7 +131,7 @@ dplyr::glimpse(data)
 # $ localidad_amba                <chr> ""
 ```
 
-### :globe_with_meridians: `convertir_coordenadas`
+### :globe_with_meridians: `convertir_coord`
 
 Convierte coordenadas a formatos `GKBA`, `WGS84 (Lon/Lat)` y `WGS84 (grados, minutos y segundos)`. El parámetro `output` puede ser uno de `gkba`, `lonlat` o `degrees`.
 Acepta cualquier formato de entrada. El formato de entrada es detectado automáticamente.
