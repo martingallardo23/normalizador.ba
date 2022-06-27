@@ -35,7 +35,6 @@ buscar una calle y altura o una intersección, en cuyo caso la
 intersección completa se incluye en la variable calle.
 
 ``` r
-library(normalizador.ba)
 data <- normalizar_direccion(calle  = "córdoba", 
                              altura = 637)
 

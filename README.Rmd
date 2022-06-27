@@ -33,7 +33,6 @@ Las funciones actualmente disponibles son
 Utiliza el servicio USIG para normalizar una dirección. Devuelve el nombre de la calle normalizado y el código identificador. Se puede buscar una calle y altura o una intersección, en cuyo caso la intersección completa se incluye en la variable calle. 
 
 ```{r}
-library(normalizador.ba)
 data <- normalizar_direccion(calle  = "córdoba", 
                              altura = 637)
 
