@@ -16,6 +16,11 @@
 #'                 output = "degrees")
 #' @export
 convertir_coord <- function(x, y, output = "lonlat") {
+
+  if (!(output %in% c("lonlat", "degrees", "gkba"))){
+    rlang::abort("x" = "`output` debe ser 'lonlat', 'degrees', o 'gkba'")
+  }
+
   url <- paste0(url_usig_rest, "convertir_coordenadas?x=",
                 x, "&y=", y, "&output=", output)
 

@@ -15,8 +15,11 @@
 #' @export
 normalizar_direccion <- function(calle, altura = NULL, desambiguar = 1) {
 
-  calle <- gsub(" ", "%20", calle)
+  if (!(desambiguar %in% c(0,1))) {
+    rlang::abort("x" = "`desambiguar` debe ser 0 o 1")
+  }
 
+  calle <- gsub(" ", "%20", calle)
   if (!is.null(altura)) {
   url <- paste0(url_usig_rest, 'normalizar_direcciones?calle=', calle,
                 "&altura=", altura, "&desambiguar=", desambiguar)

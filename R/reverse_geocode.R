@@ -11,8 +11,7 @@
 #' @export
 reverse_geocode <- function(x, y) {
 
-  url <- paste0(url_usig_geocoder, "reversegeocoding?x=", x,
-                "&y=", y)
+  url <- paste0(url_usig_geocoder, "reversegeocoding?x=", x, "&y=", y)
 
   data <- httr::GET(url)
   data <- jsonlite::fromJSON(gsub("\\(|\\)", '', rawToChar(data$content)))

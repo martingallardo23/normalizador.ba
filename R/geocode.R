@@ -20,6 +20,14 @@
 #' @export
 geocode <- function(calle, altura = NULL, desambiguar = 1, output = "gkba") {
 
+  if (!(output %in% c("lonlat", "degrees", "gkba"))) {
+    rlang::abort(c("x" = "`output` debe ser 'lonlat', 'degrees', o 'gkba'"))
+  }
+
+  if (!(desambiguar %in% c(0,1))) {
+    rlang::abort("x" = "`desambiguar` debe ser 0 o 1")
+  }
+
   calle <- gsub(" ", "%20", calle)
 
   if (!is.null(altura)) {
@@ -30,7 +38,6 @@ geocode <- function(calle, altura = NULL, desambiguar = 1, output = "gkba") {
   url <- paste0(url_usig_rest, "normalizar_y_geocodificar_direcciones?calle=", calle,
                 "&desambiguar=", desambiguar)
   }
-
 
   data <- httr::GET(url)
   data <- jsonlite::fromJSON(rawToChar(data$content))

@@ -16,19 +16,20 @@
 #' @export
 datos_utiles <- function(calle = NULL, altura = NULL, x=NULL, y=NULL) {
 
-  if ((is.null(x) & is.null(y)) & !is.null(calle) ) {
+  if (is.null(c(x,y)) & !is.null(calle) ) {
+
     calle <- gsub(" ", "%20", calle)
+
     if (!is.null(altura)) {
     url <- paste0(url_usig, "/datos_utiles?calle=", calle,
                   "&altura=", altura)
     } else {
       url <- paste0(url_usig, "/datos_utiles?calle=", calle)
     }
-  } else if (!(is.null(x) & is.null(y)) & is.null(calle)) {
-    url <- paste0(url_usig, "/datos_utiles?x=", x,
-                  "&y=", y)
+  } else if (!is.null(c(x, y)) & is.null(calle)) {
+    url <- paste0(url_usig, "/datos_utiles?x=", x, "&y=", y)
   } else {
-    stop('Se debe proveer calle y altura o x e y', call=F)
+    rlang::abort("x" = "Se debe proveer calle, calle y altura o x e y")
   }
 
   data <- httr::GET(url)
