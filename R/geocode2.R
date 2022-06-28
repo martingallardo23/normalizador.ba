@@ -6,16 +6,19 @@
 #' A diferencia de `geocode` (que utiliza el sistema USIG 2.2),
 #' se utiliza el sistema previo USIG 2.1.2.
 #'
-#' @param direccion Incluye calle y altura o intersección
-#' @param maxOptions Cantidad máxima de opciones a devolver
-#' @param output Formato de las coordenadas de salida. Uno de `gkba`,
-#' `lonlat` o `degrees`.
+#' @param direccion Character. Incluye calle y altura o intersección.
+#' @param maxOptions Numeric. Cantidad máxima de opciones a devolver
+#' @param output Uno de `gkba`, `lonlat` o `degrees`.
+#' Formato de las coordenadas de salida.
+#' @param srid Numeric or string. SRID a usar en la geocodificación. El
+#' default es `srid = 4326`
 #' @examples
 #' geocode2(calle  = "Córdoba av 637, caba")
 #'
 #' geocode(calle  = "Córdoba y florida, caba")
 #' @export
-geocode2 <- function(direccion, maxOptions = 1, output = "lonlat") {
+geocode2 <- function(direccion, maxOptions = 1, output = "lonlat",
+                     srid = "4326") {
 
   if (!(output %in% c("lonlat", "degrees", "gkba"))) {
     rlang::abort(c("x" = "`output` debe ser 'lonlat', 'degrees', o 'gkba'"))
@@ -24,18 +27,22 @@ geocode2 <- function(direccion, maxOptions = 1, output = "lonlat") {
   direccion <- gsub(" ", "%20", direccion)
 
   url <- paste0(url_usig_old, "?direccion=", direccion,
-                "&maxOptions=", maxOptions)
+                "&maxOptions=", maxOptions,
+                "&geocodificar=True&srid=", srid)
 
   data <- httr::GET(url)
   data <- jsonlite::fromJSON(rawToChar(data$content))
   if (!is.null(data$errorMessage)) {
     rlang::abort(c("x" = "Dirección no encontrada."))
   }
-  data <- dplyr::as_tibble(data$direccionesNormalizadas$coordenadas[c('x', 'y')])
+  data <- dplyr::tibble(direccion = data$direccionesNormalizadas$direccion,
+                        x         = data$direccionesNormalizadas$coordenadas$x,
+                        y         = data$direccionesNormalizadas$coordenadas$y)
 
   if (output != "lonlat") {
-    data <- convertir_coord(data$x, data$y, output = output)
+    for (ii in 1:nrow(data)) {
+      data[ii, c("x", "y")] <- convertir_coord(data[ii,"x"], data[ii, "y"], output = output)
+    }
   }
-
   return(data)
 }

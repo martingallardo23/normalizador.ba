@@ -4,15 +4,18 @@
 \alias{geocode2}
 \title{Buscar cordenadas a partir de dirección (Geocoding) basado en USIG 2.1.2}
 \usage{
-geocode2(direccion, maxOptions = 1, output = "lonlat")
+geocode2(direccion, maxOptions = 1, output = "lonlat", srid = "4326")
 }
 \arguments{
-\item{direccion}{Incluye calle y altura o intersección}
+\item{direccion}{Character. Incluye calle y altura o intersección.}
 
-\item{maxOptions}{Cantidad máxima de opciones a devolver}
+\item{maxOptions}{Numeric. Cantidad máxima de opciones a devolver}
 
-\item{output}{Formato de las coordenadas de salida. Uno de \code{gkba},
-\code{lonlat} o \code{degrees}.}
+\item{output}{Uno de \code{gkba}, \code{lonlat} o \code{degrees}.
+Formato de las coordenadas de salida.}
+
+\item{srid}{Numeric or string. SRID a usar en la geocodificación. El
+default es \code{srid = 4326}}
 }
 \description{
 Encuentra la coordenada más cercana a la dirección provista. Formato de
