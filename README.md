@@ -84,7 +84,7 @@ dplyr::glimpse(data)
 
 Encuentra la coordenada más cercana a la dirección provista utilizando
 USIG 2.1.2. No es necesario separar la calle y altura. Se recomienda
-incluir la provincia en
+incluir la provincia en la dirección.
 
 ``` r
 data <- geocode2(direccion  = "Córdoba y florida, caba")
