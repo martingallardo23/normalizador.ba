@@ -82,8 +82,9 @@ dplyr::glimpse(data)
 
 ### :earth_asia: `geocode2`
 
-Encuentra la coordenada más cercana a la dirección provista. No es
-necesario que la dirección esté normalizada.
+Encuentra la coordenada más cercana a la dirección provista utilizando
+USIG 2.1.2. No es necesario separar la calle y altura. Se recomienda
+incluir la provincia en
 
 ``` r
 data <- geocode2(direccion  = "Córdoba y florida, caba")
@@ -97,7 +98,7 @@ dplyr::glimpse(data)
     ## $ y <chr> "-34.598704"
 
 ``` r
-data <- geocode2(direccion  = "Córdoba y florida, caba",
+data <- geocode2(direccion  = "Córdoba 637",
                  output = "gkba")
 
 dplyr::glimpse(data)
@@ -105,8 +106,8 @@ dplyr::glimpse(data)
 
     ## Rows: 1
     ## Columns: 2
-    ## $ x <chr> "108065.75"
-    ## $ y <chr> "103387.25"
+    ## $ x <chr> ""
+    ## $ y <chr> ""
 
 ### :round_pushpin: `reverse_geocode`
 
