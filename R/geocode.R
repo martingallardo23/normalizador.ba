@@ -25,7 +25,7 @@ geocode <- function(calle, altura = NULL, desambiguar = 1, output = "gkba") {
   }
 
   if (!(desambiguar %in% c(0,1))) {
-    rlang::abort("x" = "`desambiguar` debe ser 0 o 1")
+    rlang::abort(c("x" = "`desambiguar` debe ser 0 o 1"))
   }
 
   calle <- gsub(" ", "%20", calle)
@@ -41,6 +41,10 @@ geocode <- function(calle, altura = NULL, desambiguar = 1, output = "gkba") {
 
   data <- httr::GET(url)
   data <- jsonlite::fromJSON(rawToChar(data$content))
+  if (is.list(data) && data$Normalizacion$TipoResultado != "DireccionNormalizada" |
+      !is.list(data)) {
+    rlang::abort(c("x" = "Dirección no encontrada. Si el problema persiste, probar `geocode2`"))
+  }
   data <- dplyr::as_tibble(data$GeoCodificacion)
 
   if (output != "gkba") {
