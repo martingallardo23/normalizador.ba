@@ -93,21 +93,24 @@ dplyr::glimpse(data)
 ```
 
     ## Rows: 1
-    ## Columns: 2
-    ## $ x <chr> "-58.375376"
-    ## $ y <chr> "-34.598704"
+    ## Columns: 3
+    ## $ direccion <chr> "CORDOBA AV. y FLORIDA, CABA"
+    ## $ x         <chr> "-58.375376"
+    ## $ y         <chr> "-34.598704"
 
 ``` r
 data <- geocode2(direccion  = "Córdoba 637",
-                 output = "gkba")
+                 maxOptions = 2,
+                 output     = "gkba")
 
 dplyr::glimpse(data)
 ```
 
-    ## Rows: 1
-    ## Columns: 2
-    ## $ x <chr> ""
-    ## $ y <chr> ""
+    ## Rows: 2
+    ## Columns: 3
+    ## $ direccion <chr> "CORDOBA AV. 637, CABA", "Provincia de Córdoba 637, Almirant…
+    ## $ x         <chr> "108019.43", "109613.85"
+    ## $ y         <chr> "103392.83", "83335.55"
 
 ### :round_pushpin: `reverse_geocode`
 

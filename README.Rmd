@@ -73,7 +73,8 @@ dplyr::glimpse(data)
 ```
 ```{r}
 data <- geocode2(direccion  = "Córdoba 637",
-                 output = "gkba")
+                 maxOptions = 2,
+                 output     = "gkba")
 
 dplyr::glimpse(data)
 ```
