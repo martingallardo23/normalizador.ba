@@ -23,6 +23,7 @@ Las funciones actualmente disponibles son
 
 -   [`normalizar_direccion(calle, altura, desambiguar)`](#book-normalizar_direccion)
 -   [`geocode(calle, altura, desambiguar, output)`](#earth_americas-geocode)
+-   [`geocode2(direccion, maxOptions, output)`](#earth_asia-geocode2)
 -   [`reverse_geocode(x, y)`](#round_pushpin-reverse_geocode)
 -   [`datos_utiles(calle, altura, x, y)`](#bulb-datos_utiles)
 -   [`convertir_coord(x, y, output)`](#globe_with_meridians-convertir_coord)
@@ -78,6 +79,34 @@ dplyr::glimpse(data)
     ## Columns: 2
     ## $ x <chr> "-58.375881"
     ## $ y <chr> "-34.598654"
+
+### :earth_asia: `geocode2`
+
+Encuentra la coordenada más cercana a la dirección provista. No es
+necesario que la dirección esté normalizada.
+
+``` r
+data <- geocode2(direccion  = "Córdoba y florida, caba")
+
+dplyr::glimpse(data)
+```
+
+    ## Rows: 1
+    ## Columns: 2
+    ## $ x <chr> "-58.375376"
+    ## $ y <chr> "-34.598704"
+
+``` r
+data <- geocode2(direccion  = "Córdoba y florida, caba",
+                 output = "gkba")
+
+dplyr::glimpse(data)
+```
+
+    ## Rows: 1
+    ## Columns: 2
+    ## $ x <chr> "108065.75"
+    ## $ y <chr> "103387.25"
 
 ### :round_pushpin: `reverse_geocode`
 
