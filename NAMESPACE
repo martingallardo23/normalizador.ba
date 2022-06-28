@@ -3,5 +3,6 @@
 export(convertir_coord)
 export(datos_utiles)
 export(geocode)
+export(geocode2)
 export(normalizar_direccion)
 export(reverse_geocode)
