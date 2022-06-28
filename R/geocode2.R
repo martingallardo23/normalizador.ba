@@ -15,7 +15,9 @@
 #' @examples
 #' geocode2(calle  = "Córdoba av 637, caba")
 #'
-#' geocode(calle  = "Córdoba y florida, caba")
+#' geocode2(direccion  = "Córdoba 637",
+#'          maxOptions = 2,
+#'          output     = "gkba")
 #' @export
 geocode2 <- function(direccion, maxOptions = 1, output = "lonlat",
                      srid = "4326") {

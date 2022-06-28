@@ -27,5 +27,7 @@ se utiliza el sistema previo USIG 2.1.2.
 \examples{
 geocode2(calle  = "Córdoba av 637, caba")
 
-geocode(calle  = "Córdoba y florida, caba")
+geocode2(direccion  = "Córdoba 637",
+         maxOptions = 2,
+         output     = "gkba")
 }
