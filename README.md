@@ -83,8 +83,10 @@ dplyr::glimpse(data)
 ### :earth_asia: `geocode2`
 
 Encuentra la coordenada más cercana a la dirección provista utilizando
-USIG 2.1.2. No es necesario separar la calle y altura. Se recomienda
-incluir la provincia en la dirección.
+USIG 2.1.2. Ligeramente más flexible que `geocode`. No es necesario
+separar la calle y altura. Se recomienda incluir la provincia en la
+dirección. Se permite obtener hasta `maxOptions` coordenadas. Se permite
+cambiar el sistema de referencia con el parámetro `srid`.
 
 ``` r
 data <- geocode2(direccion  = "Córdoba y florida, caba")
